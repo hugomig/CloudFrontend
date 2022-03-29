@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Login from './components/login/Login';
+import SignUp from './components/signUp/SignUp';
+import Successfull from './components/successfull/Successfull';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>}>
+            <Route index element={<Successfull/>}/>
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signUp" element={<SignUp/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
