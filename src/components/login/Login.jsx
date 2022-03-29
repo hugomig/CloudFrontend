@@ -11,14 +11,19 @@ const Login = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await axios.post('/api/auth',{
-            username,
-            password 
-        });
+        try{
+            const response = await axios.post('/api/auth',{
+                username,
+                password 
+            });
 
-        await localStorage.setItem('isLogged', true);
-        await localStorage.setItem('jwt', response.data);
-        nav('/');
+            await localStorage.setItem('isLogged', true);
+            await localStorage.setItem('jwt', response.data);
+            nav('/');
+        }
+        catch(err){
+            alert('Invalid credentials');
+        }
     }
 
     return (

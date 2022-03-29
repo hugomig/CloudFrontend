@@ -28,6 +28,7 @@ const SignUp = () => {
             nav('/');
         }
         catch(err){
+            alert('Error check your informations');
             console.log(err.message);
         }
     }
